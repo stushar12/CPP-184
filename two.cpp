@@ -12,11 +12,11 @@ int findPivot(int arr[], int low, int high)
 
   if (mid > low && arr[mid] < arr[mid - 1]) 
    return (mid-1); 
+							//eg.{4,5,6,7,1,2,3}
+ if (arr[mid] <= arr[low]) 
+  return findPivot(arr, low, mid-1); 			//pivot element is on the left side
 
- if (arr[low] >= arr[mid]) 
-  return findPivot(arr, low, mid-1); 
-
- return findPivot(arr, mid + 1, high); 
+ return findPivot(arr, mid + 1, high); 			//else pivot element is on right side
 } 
 
 int main()
